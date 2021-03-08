@@ -50,6 +50,13 @@
             }
         }
 
+        document.write("You got " + ctr + " matches! <br>")
+        if (luckyball == luckyInput){
+            document.write("The lucky ball matched!")
+        }
+        else {
+            document.write("The lucky ball did not match.")
+        }
         // accessing the array above allows for less cases
         playerPrize = 0
         if (ctr == 0 && luckyInput == luckyball){
