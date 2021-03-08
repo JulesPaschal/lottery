@@ -16,9 +16,6 @@
         }
         luckyball = Math.round(Math.random() * 48)
 
-        //arr = [1, 2, 3, 4, 5]
-        luckyball = 12
-
         input = prompt ("Enter five numbers between 1 and 48", "").split(" ")
 
         for (i = 0; i < 5; i++){
@@ -34,32 +31,32 @@
             document.write(arr[i]+ "<br>") 
         }
 
-        let uniqueInput  = input.filter((c, index) => {
-            return input.indexOf(c) === index;
-        });
-
-        input = uniqueInput
         luckyInput = prompt("Enter one more number between 1 and 48")
         document.write("You chose " + luckyInput + " for the luckyball! <br>")
-        document.write("The luckyball number was " + luckyball+ "!<br>")
+        document.write("The luckyball number was " + luckyball + "!<br>")
 
+        // this array exists to simplify the conditionals later
         prizes = [4, 6, 3, 25, 20, 150, 200, 5000, 25000, 7000]
         ctr = 0
 
+
+        // this for loop checks for matches. if found, that array value
+        // goes to -1 to indicate that it was counted
         for(i = 0; i < input.length; i++) {  
             var num = input[i]                
             if (arr.includes(num) == true) {
                 ctr++
+                arr[i] = -1
             }
         }
-        document.write(ctr)
-        
+
+        // accessing the array above allows for less cases
         playerPrize = 0
         if (ctr == 0 && luckyInput == luckyball){
-            playerPrize == prizes[0]
+            playerPrize = prizes[0]
         }
         else if (ctr == 1 && luckyInput == luckyball){
-            playerPrize == prizes[1]
+            playerPrize = prizes[1]
         }
         else if (ctr > 1 && luckyInput == luckyball){
             playerPrize = prizes [2 * ctr - 1]
